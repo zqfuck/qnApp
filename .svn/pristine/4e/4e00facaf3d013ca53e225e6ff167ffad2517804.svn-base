@@ -1,0 +1,135 @@
+/**
+ * Created by Administrator on 2018/2/8.
+ */
+header{
+    height:1.2rem;
+    background-color: #fff;
+    line-height:1.2rem;
+    text-align: center;
+    font-size:0.3rem;
+    color:#4c5568;
+    width:100%;
+    position:relative;
+}
+.back{
+    /* background: url("../img/fanhui.png") no-repeat center;
+    background-size: 100% 100%; */
+    position: absolute;
+    /* top: calc(50% - 0.2rem); */
+    left: 0.25rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#4c5568;
+}
+.add{
+    display: inline-block;
+    width: 0.36rem;
+    height: 0.36rem;
+    background:url('../img/tianjia-.png') no-repeat center center;
+    background-size:100% 100%;
+    background-position: 0 0;
+    vertical-align: middle;
+    position: absolute;
+    top: calc(50% - 0.2rem);
+    right: 0.25rem;
+}
+section{
+    padding: 0 0.25rem;
+    font-size:0.28rem;
+    color:#4c5568;
+}
+.searchBox{
+    width: 100%;
+    height: 1.14rem;
+    border-bottom: 1px solid #d0d3db ;
+}
+.chooseList{
+    width: 26%;
+    position: relative;
+}
+.chooseList i{
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 0.18rem;
+    height: 0.1rem;
+    background:url('../img/smallicon.png') no-repeat center center;
+    background-size: 100% 100%;
+    background-position: 0 0;
+}
+.chooseList ul{
+    width: 94%;
+    position: absolute;
+    left: -10%;
+    bottom: -180%;
+    border: 1px solid #e1e1e1;
+    z-index: 1;
+    background: #fff;
+}
+.chooseList ul li{
+    padding:0.1rem;
+    text-align: center;
+}
+.inpBox{
+    width: 64%;
+    height: 0.59rem;
+    border: 1px solid #d0d3db;
+    border-radius: 27px;
+    margin-top: 0.3rem;
+    padding-left: 0.1rem;
+    padding-top: 0.1rem;
+
+}
+.inpBox .search{
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url("../img/search.png") no-repeat center;
+    background-size: cover;
+
+}
+.inpBox input{
+    width: 80%;
+    height: 70%;
+    outline: none;
+    vertical-align: middle;
+    border: none;
+    font-size:0.28rem;
+    color:#a3acbe;
+    margin-top:-0.13rem;
+}
+.on{
+    background-color: #4d4ce7;
+    color:white;
+}
+.list{width: 100%;}
+.list-item{width: 100%;height: 1.8rem;font-size:0.28rem;color:#4c5568;
+    border-bottom: 1px solid #e7e9ef;}
+.imgBox{width: 30%;height: 100%;padding:0.23rem 0;}
+.imgBox img{width: 100%;height: 100%;}
+.detail{width:60%;padding-left: 0.7rem;position: relative;margin-top:0.35rem;}
+.detail .nameHeight{height: 65%;margin-bottom:0.3rem;width:100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis}
+.normal{position: absolute;display: inline-block;width: 0.31rem;height: 0.31rem;left: 0;top: 38%;
+    background: url("../img/weixuanzhong-.png") no-repeat center;
+    background-size: cover;}
+.active{
+    background:url('../img/xuanzhongTwo.png') no-repeat center;
+    background-size: cover;
+}
+.check{background: url("../img/xuanzhongTwo.png") no-repeat center;background-size: cover;}
+.bottom{text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

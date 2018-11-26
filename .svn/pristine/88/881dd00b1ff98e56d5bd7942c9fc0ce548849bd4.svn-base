@@ -1,0 +1,314 @@
+/**
+ * Created by Administrator on 2018/2/1.
+ */
+$(document).ready(function () {
+    var leftScroll;
+    var app = new Vue({
+        el:"#app",
+        data:{
+            username:getQueryStringByName('creator'),
+            pwd:getQueryStringByName('mdPwd'),
+            liveName:null,
+            liveCreate:null,
+            manageName:"预告管理",
+            changeTrue:false,
+            columnid:null,
+            page:1,
+            pagesize:100,
+            count:null,
+            type:1,
+            listMessage:[],
+            timeoutMessage:[],
+        },
+        methods:{
+            getDetails:function () {
+                var that = this;
+                $.ajax({
+                    url:URL+"/app/videoRoom/details",
+                    type:"get",
+                    dataType:"json",
+                    data:{
+                        username:this.username
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.state>=0){   
+                            msg = data.data;
+                            console.log(msg);
+                            that.liveName = msg.name;
+                            that.columnid=msg.column_id;
+                            console.log(that.columnid);
+                            that.liveCreate = that.timeChange(msg.created_at);
+                            that.getTrailer();
+                        }
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                })
+            },
+            getTrailer:function(){
+                var that=this;
+                $.ajax({
+                    url:URL+'/app/manager/liveroomlist',
+                    type:'get',
+                    dataType:'json',
+                    data:{
+                       // column_id:this.columnid,
+                        column_id:this.columnid,
+                        creator:this.username,
+                        pagecount:that.pagesize,
+                        type:that.type,
+                        startindex:that.page
+                    },
+                    success:function(data){
+                        if(data.state.rc==0){
+                            console.log(data);
+                            that.listMessage=[];
+                            for(var i=0;i<data.pagingrows.rows.length;i++){
+                                that.listMessage.push(data.pagingrows.rows[i]);
+                            }
+                            console.log(that.listMessage);
+                            that.listMessage.forEach(function(item){
+                                var isHave=that.timeoutMessage.indexOf(item);
+                                if( item.count_num && (isHave==-1)){
+                                    that.timeoutMessage.push(item);
+                                }
+                            });
+                            setTimeout(function(){
+                                var leftScroll = new IScroll(".controlBox", {
+                                    scrollX: true,
+                                    freeScroll: true ,
+                                    click:true,
+                                    tap:true
+                                });
+                            },100);
+                        }
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                });
+            },
+            startPushLive:function(item){
+                var that=this;
+                console.log(JSON.stringify(item));
+                window.channelsoft.loading();
+                var postData={
+                    token:getQueryStringByName('apptoken'),
+                    channelid:item.id
+                };
+                $.ajax({
+                    url:URL+"/webapi/livechannel/start",
+                    type:"post",
+                    dataType:"json",
+                    data:JSON.stringify(postData),
+                    success:function(data){
+                        console.log(data);
+                        if(data.state.rc>=0){
+                            window.channelsoft.mainViewListStartlive(JSON.stringify(item));
+                        }
+                    },
+                    error:function(err){
+                
+                        console.log(err);
+                    }
+                });
+                window.stopLive2=function(state){
+                   
+                    var stopData={
+                        channelid:item.id,
+                        token:getQueryStringByName('apptoken')
+                    };
+                    
+                    if(state==1){
+                        $.ajax({
+                            url:URL+"/webapi/livechannel/close",
+                            type:"post",
+                            dataType:"json",
+                            data:JSON.stringify(stopData),
+                            success:function(data){
+                                if(data.state.rc>=0){
+                                    window.channelsoft.stopLiveSuccess();
+                                }else{
+                                    window.channelsoft.closeLiveFailed();
+                                }
+                            },
+                            error:function(err){
+                                console.log(err);
+                                showTip('退出直播失败');
+                                window.channelsoft.closeLiveFailed();
+                            }
+                        });
+                        
+                    }else if(state==0){
+                        $.ajax({
+                            url:URL+"/webapi/livechannel/pause",
+                            type:"post",
+                            dataType:"json",
+                            data:JSON.stringify(stopData),
+                            success:function(data){
+                                if(data.state.rc>=0){
+                                    window.channelsoft.pauseLiveSuccess();
+                                }
+                            },
+                            error:function(err){
+                                console.log(err);
+                                showTip('暂停直播失败');
+                                window.channelsoft.closeLiveFailed();
+                            }
+                        });
+                    }
+                }
+            },
+            listShare:function(item){
+                console.log(item);
+                // if(item.share==undefined){
+                //     showTip('分享地址不存在');
+                // }
+                // var shareData={
+                //     sharepageurl:item.share,
+                //     cid:item.id,
+                //     name:item.name,
+                //     column_name:item.name
+                // };
+                //  window.channelsoft.shareLiveInfo(JSON.stringify(shareData));
+            },
+            enterlive:function(){
+                window.location.href="./html/enterLive.html?cid="+this.columnid+"&creator="+this.username+"&apptoken="+getQueryStringByName('apptoken')+"&pwd="+getQueryStringByName('mdPwd');
+            },
+            addLive:function(){
+                window.location.href="./html/addtrailer.html?creator="+this.username+"&pwd="+this.pwd+"&cid="+this.columnid+"&apptoken="+getQueryStringByName('apptoken');
+            },
+            goedit:function (item) {
+                //console.log(JSON.parse(item.playurls));
+                var messageData={
+                    name :item.name,
+                    content_desc :item.content_desc,
+                    live_start : item.live_start,
+                    live_end : item.live_end,
+                    coverurl : item.attinfo.coverurl,
+                    watch_type : item.watch_type,
+                    id:item.id,
+                    pushstreamurl:JSON.parse(item.playurls)[0].url
+                };
+               //window.location.href="./html/editTrailer.html?message="+JSON.stringify(item)+"&creator="+this.username+"&pwd="+this.pwd+"&cid="+this.columnid+"&apptoken="+getQueryStringByName('apptoken');
+               window.location.href="./html/editTrailer.html?creator="+this.username+"&pwd="+this.pwd+"&cid="+this.columnid+"&apptoken="+getQueryStringByName('apptoken')+"&message="+JSON.stringify(messageData);
+               console.log(messageData);
+            },
+            changeMange:function () {
+               this.changeTrue=!this.changeTrue;
+            },
+            advanceManage:function () {
+                this.manageName="预告管理";
+                this.type=1;
+                $('.backSeeVideo').css('display','none');
+                $('.backSeeVideo').attr('src','');
+                this.getTrailer();
+            },
+            backSee:function(item,index){
+                var url=JSON.parse(item.playurls)[1].url;
+                $('.backSeeVideo').not($('.backSeeVideo').eq(index)).css('display','none');
+                $('.backSeeVideo').not($('.backSeeVideo').eq(index)).attr('src','');
+                $('.backSeeVideo').eq(index).css('display','block');
+                $('.backSeeVideo').eq(index).attr('src','http://img.ksbbs.com/asset/Mon_1703/d0897b4e9ddd9a5.mp4');
+                $('.backSeeVideo').eq(index).attr('controls');
+                $('.backSeeVideo').eq(index).get(0).play();
+            },
+            backManage:function (){
+                this.manageName="回看管理";
+                this.type=2;
+                this.getTrailer();
+            },
+            timeChange:function (longTime){
+                var day = new Date(longTime); //将毫秒转化为当前日期
+                var year = day.getFullYear();
+                var month = day.getMonth()+1;
+                var date = day.getDate();
+                if(month<10){
+                    month = "0"+month;
+                }
+                if(date<10){
+                    date = "0"+date;
+                }
+                var newDay = year+"/"+month+"/"+date+" ";
+
+                return newDay;
+            },
+            timeChangeDay:function (longTime){
+                var day = new Date(longTime); //将毫秒转化为当前日期
+                var year = day.getFullYear();
+                var month = day.getMonth()+1;
+                var date = day.getDate();
+                var hour = day.getHours();
+                var minutes = day.getMinutes();
+                if(month<10){
+                    month = "0"+month;
+                }
+                if(date<10){
+                    date = "0"+date;
+                }
+                if(hour<10){
+                    hour = "0"+hour;
+                }
+                if(minutes<10){
+                    minutes = "0"+minutes;
+                }
+                var newDay = month+"-"+date+" "+hour+":"+minutes;
+
+                return newDay;
+            },
+            checkTime:function(i){
+                if(i<10) {
+                    i = "0" + i;
+                }
+                return i;
+            },
+            leftTimea:function(time){
+
+                var leftTime = time; //计算剩余的毫秒数
+                var hours = parseInt(leftTime / 1000 / 60 / 60 , 10); //计算剩余的小时
+                var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+                var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+                hours = this.checkTime(hours);
+                minutes = this.checkTime(minutes);
+                seconds = this.checkTime(seconds);
+                //document.getElementById("timer").innerHTML =  hours+":" + minutes+":"+seconds;
+                time = hours+":" + minutes+":"+seconds;
+                return time;
+            },
+        },
+        created:function () {
+            var that =this;
+            this.getDetails();
+            console.log(that.timeoutMessage)
+            setInterval(function(){
+                that.timeoutMessage.forEach(function(item,index){
+
+                    // if(that.page==2){
+                    item.count_num -=1000;
+                    // }else if(that.page==3){
+                    //     item.count_num -=500;
+                    // }
+
+                    if(item.count_num<=0){
+                        $('.apportTimeout').eq(index).css('display','none');
+                        window.location.reload();
+                    }else{
+                        //var time=that.leftTimea(item.count_num);
+                        //console.log(time);
+                       // $('.timeFont').eq(index).html(time);
+                    }
+
+                });
+            },1000);
+
+        }
+    });
+
+
+
+
+
+
+})

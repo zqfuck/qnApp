@@ -1,0 +1,306 @@
+body{
+    /* background-color: #f7f7f7; */
+    /* overflow:hidden; */
+}
+header{
+    height:1.2rem;
+    background-color: #fff;
+    line-height:1.2rem;
+    text-align: center;
+    font-size:0.3rem;
+    color:#535c71;
+    width:100%;
+    position:relative;
+}
+.loginOut{
+    position:absolute;
+    right:0.25rem;
+    font-size:0.28rem;
+}
+.cancelBack{
+    position:absolute;
+    right:0.25rem;
+}
+.host{
+    height:1.4rem;
+    background-color: #fff;
+    width:100%;
+    font-size:0.28rem;
+    color:#4c5568;
+}
+.changePassword,.liveSetting,.about{
+    height:1.2rem;
+    width:calc(100% - 0.5rem);
+    background-color: #fff;
+    margin:0 0.25rem;
+    border-bottom: 0.8px solid #d0d3db ;
+}
+.host .icon-host{
+    display:inline-block;
+    width:0.49rem;
+    height:0.49rem;
+    /* background:url('../img/users.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-left:0.25rem;
+    line-height:1.4rem;
+    margin-right:0.17rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#c4cee5;
+}
+.host,.changePassword,.liveSetting,.about{
+    position: relative;
+}
+.host,.changePassword,.liveSetting,.about span{
+    display:inline-block;
+}
+.host .host-name{
+    top:-8px;
+    position: relative;
+}
+.changePassword .icon-chpd{
+    display:inline-block;
+    width:0.33rem;
+    height:0.33rem;
+    /* background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-top:0.4rem;
+    margin-right:0.33rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#e15261;
+}
+.liveSetting .icon-setting{
+    display:inline-block;
+    width:0.33rem;
+    height:0.33rem;
+    /* background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-top:0.4rem;
+    margin-right:0.33rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#e15261;
+}
+.about .icon-about{
+    display:inline-block;
+    width:0.33rem;
+    height:0.33rem;
+    /* background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-top:0.4rem;
+    margin-right:0.33rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#e15261;
+}
+.cancellation{
+    width:80%;
+    height:0.8rem;
+    display:inline-block;
+    margin-top:20%;
+    margin-left:10%;
+    margin-right:10%;
+    background:url('../img/loginButton.png') no-repeat center center;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    border-radius: 0.8rem;
+}
+.point{
+    position:absolute;
+    width:0.12rem;
+    height:0.21rem;
+    /* background: url('../img/point.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    top:calc(50% - 0.1rem);
+    right:0.3rem;
+    font-family: iconfont;
+    font-size:0.3rem;
+    color:#a3acb3;
+}
+.userName,.oldPassword,.newPassword,.confrimPassword{
+    height:1rem;
+    width:calc(100% - 0.5rem);
+    background-color: #fff;
+    margin:0 0.25rem;
+    border-bottom: 0.8px solid #d0d3db ;
+}
+input{
+    outline: none;
+    border:none;
+    font-size:0.3rem;
+    color:#bcc3d1;
+}
+input::-webkit-input-placeholder{ /*WebKit browsers*/
+
+    color: #bcc3d1;
+    
+    }
+    
+    input::-moz-input-placeholder{ /*Mozilla Firefox*/
+    
+    color: #bcc3d1;
+    
+    }
+    
+    input::-ms-input-placeholder{ /*Internet Explorer*/ 
+    
+    color: #bcc3d1;
+    
+    }
+.userName .icon-user{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/users.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.oldPassword .icon-oldPd{
+    display:inline-block;
+    width:0.33rem;
+    height:0.33rem;
+    /* background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-top:0.4rem;
+    margin-right:0.33rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#e15261;
+}
+.newPassword .icon-newPd{
+    display:inline-block;
+    width:0.33rem;
+    height:0.33rem;
+    /* background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-top:0.4rem;
+    margin-right:0.33rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#e15261;
+}
+.confrimPassword .icon-cmPd{
+    display:inline-block;
+    width:0.33rem;
+    height:0.33rem;
+    /* background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%; */
+    margin-top:0.4rem;
+    margin-right:0.33rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#e15261;
+}
+.confirmChange{
+    position:fixed;
+    width:100%;
+    height:1.3rem;
+    display:inline-block;
+    bottom:0;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    padding:0.25rem;
+    border-top:0.8px solid #c7cdd8 ;
+}
+.confirmChange span{
+    background-color:#d13243;
+    width:100%;
+    height:100%;
+    display:inline-block;
+    border-radius: 0.1rem;
+}
+.settingClarity{
+    align-items:center;
+    height:2.14rem;
+    background-color: #fff;
+    display:flex;
+    justify-content: space-around;
+}
+.settingClarity span{
+    width:1.56rem;
+    height:0.64rem;
+    font-size:0.28rem;
+    color:#4c5568;
+    border:1px solid #b7bac4;
+    line-height:0.64rem;
+    text-align: center;
+    border-radius: 0.08rem;
+}
+.settingClarity span.active{
+    background-color: #d13243;
+    border:none;
+    color:#fff;
+}
+.saveChange{
+    position:fixed;
+    width:100%;
+    height:1.3rem;
+    display:inline-block;
+    bottom:0;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    padding:0.25rem;
+    border-top:0.8px solid #c7cdd8 ;
+}
+.saveChange span{
+    background-color:#d13243;
+    width:100%;
+    height:100%;
+    display:inline-block;
+    border-radius: 0.1rem;
+}
+.logo{
+    margin-top:0.85rem;
+    width:100%;
+}
+.logo img{
+    width:1.58rem;
+    height:1.4rem;
+    display:block;
+    margin:0 auto;
+    margin-bottom:0.25rem;
+}
+.logo span{
+    display:block;
+    text-align: center;
+    font-size:0.24rem;
+    color:#666;
+}
+.aboutContent{
+    margin-top:2.7rem;
+    width:100%;
+    line-height:0.5rem;
+    font-size:0.28rem;
+    color:#fff;
+}
+.footer{
+    width:100%;
+    margin-top:0.5rem;
+}
+.footer p{
+    font-size:0.28rem;
+    color:#fff;
+    width:100%;
+    margin-top:0.2rem;
+}
+.back{
+    position: absolute;
+    /* top: calc(50% - 0.2rem); */
+    left: 0.25rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#a3acbe;
+}
+.aboutDetails{
+    height:calc(100% - 1.2rem);
+    padding:0.1rem 0.8rem;
+    background:url('../img/aboutDetails.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    background-position: 0 0;
+}

@@ -1,0 +1,266 @@
+$(function(){
+    function timeTranfer(time){
+        var date=new Date(time);
+        return date.getTime();
+    };
+    function transTime(longTime) {
+            var day = new Date(longTime); //将毫秒转化为当前日期
+            var year = day.getFullYear();
+            var month = day.getMonth()+1;
+            var date = day.getDate();
+            var hour = day.getHours();
+            var minutes = day.getMinutes();
+            var seconds = day.getSeconds();
+            if(month<10){
+                month = "0"+month;
+            }
+            if(date<10){
+                date = "0"+date;
+            }
+            if(hour<10){
+                hour = "0"+hour;
+            }
+            if(minutes<10){
+                minutes = "0"+minutes;
+            }
+            if(seconds<10){
+                seconds = "0"+seconds;
+            }
+            var newDay = year+"-"+month+"-"+date+" "+hour+":"+minutes+":"+seconds;
+
+            return newDay;
+
+    };
+    function getQueryStringByName(name){
+        var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+
+        if(result == null || result.length < 1){
+
+            return "";
+        }
+
+        return result[1];
+    }
+
+    window.posterImg=function(url){
+        $('.addPoster img').attr('src',url);
+    };
+    setTimeout(function(){
+        laydate.render({
+            elem: '.startTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '.endTime',
+            type: 'datetime'
+        });
+    },500);
+
+
+    var app=new Vue({
+        el:"#app",
+        data:{
+            id:null,
+            selectedPro:[],
+            userName:getQueryStringByName('creator'),
+            titl:'',
+            description:'',
+            starttime:'',
+            endtime:'',
+            password:'',
+            watchType:0,
+            watchPass:'',
+            extend:true,
+            sendProduct:[],
+            posterUrl:null,
+            product:'',
+            imageurl:null,
+            source:2,
+            msg:null,
+            productLength:0
+        },
+        methods:{
+            add:function(){
+                var that=this;
+               // window.channelsoft.upImg();
+                // window.upImgResult=function(rc,url){
+                //     if(rc==0){
+                //         that.imageurl=url;
+                //     }else{
+                //         showTip('图片上传失败');
+                //     }
+                // };
+                var fnType=this.watchType;
+                if(!this.watchPass){
+                    if(this.watchType==1){
+                        fnType='';
+                    }
+                }
+                var postData={
+                    account:this.userName,
+                    pwd:getQueryStringByName('pwd'),
+                    playurl:this.playurl,
+                    // column_id:this.id,
+                    title:this.titl,
+                    imageurl:this.imageurl,
+                    description:this.description,
+                    live_start:timeTranfer($('.startTime').html().replace(/-/g,'/'))/1000,
+                    live_end:timeTranfer($('.endTime').html().replace(/-/g,'/'))/1000,
+                    watchtype:fnType,
+                    watchpass:this.watchPass,
+                    product:this.product.substring(0,(this.product.length)-1)
+                };
+                console.log(JSON.stringify(postData))
+                $.ajax({
+                    url:URL+'/webapi/livechannel/generate_update',
+                    type:'post',
+                    dataType:'json',
+                    data:JSON.stringify(postData),
+                    success:function(data){
+                        console.log(data);
+                        if(data.state.rc==0){
+                            showTip('编辑成功');
+                            setTimeout(function(){
+                                window.channelsoft.refreshLiveRoom();
+                            },2000);
+                        }else{
+                           
+                            console.log(data)
+                            showTip('编辑失败');
+                        }
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                });
+            },
+            getList:function(){
+                console.log(123);
+                var that=this;
+                $.ajax({
+                    url:URL+"/webapi/banner/live-particulars",
+                    type:"get",
+                    dataType:"json",
+                    data:{
+                        cid:this.id
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.state.rc==0){
+                            console.log(data.product_data.length)
+                            for(var i=0;i<data.product_data.length;i++){
+                                that.selectedPro.push(data.product_data[i]);
+                            }
+                            that.selectedPro.forEach(function(item){
+                                that.sendProduct.push(item.pid);
+                            });
+                            console.log(that.sendProduct);
+                            that.sendProduct.forEach(function(item){
+                                that.product+=item+',';
+            
+                            });
+                            that.productLength=that.sendProduct.length;
+                        }
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                });
+            },
+            toAddProduct:function(){
+                var recommendData={
+                    name:this.titl,
+                    imageurl:this.imageurl,
+                    content_desc:this.description,
+                    live_start:$('.startTime').html(),
+                    live_end:$('.endTime').html(),
+                    watch_type:this.watchType,
+                    watchpass:this.watchPass,
+                    id:this.id,
+                    playurl:this.playurl
+                }
+                console.log(recommendData);
+                window.location.href="./addRecommend.html?type="+this.source+"&recommendData="+JSON.stringify(recommendData)+"&creator="+getQueryStringByName('creator')+"&pwd="+getQueryStringByName('pwd');
+            },
+            back:function () {
+                window.channelsoft.refreshLiveRoom();
+            },
+            addPoster:function(){
+                var that=this;
+                window.channelsoft.addPoster();
+                window.posterImg=function(url,httpUrl){
+                    $('.addPoster img').attr('src',url);
+                    that.imageurl=httpUrl;
+                };  
+                this.imgType=true;
+            },
+            chooseImg:function(){
+                this.addPoster();
+            },
+            deleteImg:function(){
+                this.posterUrl='../img/addImg.png';
+            },
+            addVideo:function(){
+                showTip('功能暂未开放');
+            },
+            havePassword:function(){
+                this.watchType=1;
+            },
+            noPassword:function(){
+                this.watchType=0;
+            },
+            deltea:function(index){
+                var that=this;
+                this.selectedPro.splice(index,1);
+                this.sendProduct.splice(index,1);
+                that.product='';
+                this.sendProduct.forEach(function(item){
+                    
+                  that.product+=item+',';
+                  
+                  });
+                this.productLength=this.sendProduct.length;
+                console.log(this.sendProduct);
+                console.log(this.product);
+            },
+            toggleExtend:function(){
+                this.extend=!this.extend;
+            }
+        },
+        created:function(){
+            var that=this;
+            if(getQueryStringByName('recommendData')){
+                this.msg = JSON.parse(decodeURI(getQueryStringByName('recommendData')));
+                that.starttime=this.msg.live_start;
+                that.endtime =this.msg.live_end;
+                that.playurl=this.msg.playurl;
+                that.imageurl = this.msg.imageurl;
+            }
+            if(getQueryStringByName('message')){
+                this.msg = JSON.parse(decodeURI(getQueryStringByName('message')));
+                that.starttime = transTime(this.msg.live_start);
+                that.endtime = transTime(this.msg.live_end);
+                that.playurl=this.msg.pushstreamurl;
+                that.imageurl = this.msg.coverurl;
+            }
+           
+                console.log(this.msg);
+                that.titl = this.msg.name;
+                that.description =this. msg.content_desc;
+                
+                that.watchType = this.msg.watch_type;
+                that.watchPass=this.msg.watchpass;
+                that.id=this.msg.id;
+               
+            
+            this.getList();
+            if(getQueryStringByName('selectedProduct')){
+                JSON.parse(decodeURI(getQueryStringByName('selectedProduct'))).forEach(function(item){
+                    that.selectedPro.push(item);
+                });
+            }
+        }
+
+    });
+
+});

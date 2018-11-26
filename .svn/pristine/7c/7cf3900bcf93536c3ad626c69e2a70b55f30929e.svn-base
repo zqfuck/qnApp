@@ -1,0 +1,31 @@
+
+body{background:white;}
+header{height: 1rem;background: #514cea;font-size: 0.35rem;font-weight: normal;
+    color: #fff;text-align: center;line-height: 1rem;margin-bottom: 0.24rem;}
+section .loginp{background: #fff;margin-left: 0.4rem;margin-right:0.4rem;padding-bottom:0.23rem;padding-top:0.23rem;}
+section .loginp .inpBj{display: inline-block;vertical-align: middle;font-family: iconfont;
+    font-size:0.4rem;
+    color:#a3acbe;}
+section .loginp  input{width: 80%;height: 90%;margin-top: 1%;font-size: 0.3rem;;
+    border: none;outline: none;line-height: 90%;padding-left: 0.3rem;}
+section .loginp  input::-webkit-input-placeholder{
+    color: #a3acbe;margin-top: 1%;
+}
+.forget{color: #d13243;font-size: 0.24rem;text-align: right;margin-top: 0.55rem;margin-right: 0.4rem;}
+#loginBtn{
+    
+        width:5.3rem;
+        height:0.8rem;
+        background-color: #d13243;
+        border-radius: 0.1rem;
+        display:block;
+        margin:1.16rem auto;
+        /* background:url('../img/loginButton.png') no-repeat center center;
+        background-size:100% 100%; */
+        color:white;
+        line-height:0.8rem;
+        text-align: center;
+        font-size:0.32rem;
+    
+}
+

@@ -1,0 +1,126 @@
+header{
+    width: 100%;
+    height: 0.9rem;
+    color: #4c5568;
+    font-size:0.3rem;
+    text-align: center;
+    line-height: 0.9rem;
+    overflow: auto;
+    position: relative;
+}
+section{
+    height:calc(100% - 0.9rem);
+}
+#app{
+    height:100%;
+}
+.fansDetailBg {
+    background: url(../img/fansDetailsBg.png) no-repeat center center;
+    background-size: 100% 100%;
+    background-position: 0 0;
+}
+.back{
+    position: absolute;
+    /* top: calc(50% - 0.2rem); */
+    left: 0.25rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#a3acbe;
+}section{
+    padding:0 0.25rem;
+}
+.headInfo{
+    width: 100%;
+    height: 2.4rem;
+    padding: 0.5rem 0.25rem 0;
+}
+.imgBox{
+    width: 1.56rem;
+    height: 1.56rem;
+    margin-right: 0.6rem;
+}
+.imgBox img{
+    width: 100%;
+    height: 100%;
+}
+.detailTit{
+    width: 100%;
+    height: 1rem;
+    border-bottom: 0.8px solid #d0d3db;
+    line-height: 1rem;
+    color: #4c5568;
+    font-size: 0.28rem;
+}
+.infoBox{
+    color: #fff;
+    font-size: 0.3rem;
+}
+
+.imgSize img{
+    width: 0.38rem;
+    height: 0.38rem;
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+
+.fansDetail{
+    border-bottom:1px solid #e1e1e1;
+    height:2.6rem;
+    width:95%;
+    margin-left:2.5%;
+    margin-right:2.5%;
+    padding-top:0.35rem;
+    padding-bottom:0.35rem;
+}
+.fansDetail .watchId{
+    margin-bottom:0.35rem;
+    font-size:0.3rem;
+    font-weight:bold;
+    color:#333;
+}
+.fansDetail .watchId .watchTime{
+    float:right;
+    font-size:0.24rem;
+    color:#999;
+    font-weight:normal;
+}
+.fansDetail .watchContent{
+    font-size:0.3rem;
+    color:#666;
+    margin-bottom:0.35rem;
+}
+.fansDetail .watchTimea{
+    font-size:0.3rem;
+    color:#666;
+}
+.accessItem{
+    border-bottom:0.8px solid #d0d3db;
+    width:100%;
+    padding-top:0.35rem;
+    padding-bottom:0.35rem;
+}
+.accessItem .watchId{
+    margin-bottom:0.3rem;
+    font-size:0.28rem;
+    color:#d13243;
+}
+.accessItem .watchId .watchTime{
+    float:right;
+    font-size:0.22rem;
+    color:#a3acbe;
+}
+.accessItem .watchContent{
+    font-size:0.22rem;
+    color:#a3acbe;
+    margin-bottom:0.3rem;
+}
+.accessItem .watchTimea{
+    font-size:0.22rem;
+    color:#a3acbe;
+}
+.itemContainer{
+    height:calc(100% - 2.6rem);
+    width:100%;
+    overflow:hidden;
+   
+}

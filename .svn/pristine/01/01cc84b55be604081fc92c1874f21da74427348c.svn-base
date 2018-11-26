@@ -1,0 +1,100 @@
+$(function(){
+    var creater=getQueryStringByName('creator');
+    function getQueryStringByName(name){
+        var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+
+        if(result == null || result.length < 1){
+
+            return "";
+
+        }
+
+         return result[1];
+    }
+    $('#host-name').html(creater);
+    $('.back').click(function(){
+        window.history.go(-1);
+    })
+    $('#changePassword').click(function(){
+        window.location.href="./html/changePassword.html?creator="+creater;
+    });
+    $('#liveSetting').click(function(){
+        window.location.href="./html/settingClarity.html";
+    });
+    $('#about').click(function(){
+        window.location.href="./html/about.html";
+    });
+    $('#confirmChange').click(function(){
+        if(!$('#oldPassword').val()){
+            showTip('请输入密码');
+            return;
+        }
+        if(!$('#newPassword').val()){
+            showTip('请输入新密码');
+            return;
+        }
+        if(!$('#confrimPassword').val()){
+            showTip('请确认密码');
+            return;
+        }
+        var old_pass=$('#oldPassword').val();
+        var new_pass=$('#newPassword').val();
+        var re_pass=$('#confrimPassword').val();
+        var postData={
+            username:creater,
+            old_pass:old_pass,
+            new_pass:new_pass,
+            re_pass:re_pass
+        }
+        $.ajax({
+            url:URL+'/app/manager/resetpass',
+            type:"post",
+            dataType:'json',
+            data:JSON.stringify(postData),
+            success:function(data){
+                if(data.rc==0){
+                    showTip(data.msg);
+                    $('#oldPassword').val('');
+                    $('#newPassword').val('');
+                    $('#confrimPassword').val('');
+                   showTip('密码修改成功'); 
+                }else{
+                    showTip(data.msg);
+                }
+            },
+            error:function(err){
+                console.log(err);
+            }
+        })
+    });
+    $('#saveChange').click(function(){
+        var state=0;
+        if($('#Standard').hasClass('active')){
+            state=0;
+        }else if($('#hd').hasClass('active')){
+            state=1;
+        }else if($('#superClear').hasClass('active')){
+            state=2;
+        }
+        console.log(state);
+        showTip('设置成功');
+        window.channelsoft.changeClarity(state);
+    });
+    $('.settingClarity span').click(function(){
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+       
+    });
+    $('.loginOut').click(function(){
+        //window.location.href="./login.html";
+        
+        //showTip('注销');
+        window.channelsoft.loginOut();
+    });
+    $('#productDetails').click(function(){
+        window.location.href='http://www.channelsoft.com';
+    });
+    $('#productTel').click(function(){
+        window.location.href="tel://010-88822000";
+    })
+})

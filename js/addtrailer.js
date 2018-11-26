@@ -1,0 +1,241 @@
+$(function(){
+    function timeTranfer(time){
+        var date=new Date(time);
+        return date.getTime();
+    }
+    function getQueryStringByName(name){
+        var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+
+        if(result == null || result.length < 1){
+
+            return "";
+        }
+
+         return result[1];
+    }
+    function convertBase64UrlToBlob(urlData){  
+
+        var bytes=window.atob(urlData.split(',')[1]);        //去掉url的头，并转换为byte  
+    
+        //处理异常,将ascii码小于0的转换为大于0  
+        var ab = new ArrayBuffer(bytes.length);  
+        var ia = new Uint8Array(ab);  
+        for (var i = 0; i < bytes.length; i++) {  
+            ia[i] = bytes.charCodeAt(i);  
+        }  
+    
+        return new Blob( [ab] , {type : 'image/png'});  
+    }  
+   
+    setTimeout(function(){
+        laydate.render({
+            elem: '.startTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '.endTime',
+            type: 'datetime'
+        }); 
+    },500);
+    
+  
+    var app=new Vue({
+        el:"#app",
+        data:{
+            selectedPro:[],
+            userName:getQueryStringByName('creator'),
+            titl:'',
+            description:'',
+            starttime:'',
+            endtime:'',
+            password:'',
+            watchType:0,
+            watchPass:'',
+            watchType:0,
+            extend:true,
+            sendProduct:[],
+            product:'',
+            imageurl:null,
+            source:0,
+            productLength:0,
+            imgType:false
+        },
+        methods:{
+            add:function(){
+                var that=this;
+                // window.channelsoft.upImg();
+                if(timeTranfer($('.startTime').html().replace(/-/g,'/'))>timeTranfer($('.endTime').html().replace(/-/g,'/'))){
+                    showTip('请选择正确的直播时间');
+                    return
+                }
+                var startTime=timeTranfer($('.startTime').html().replace(/-/g,'/'));
+                var now=new Date().getTime();
+                if(startTime<=now){
+                    showTip('请选择正确的开始时间');
+                    return
+                }
+                // window.upImgResult=function(rc,url){
+                //     if(rc==0){
+                //         that.imageurl=url;
+                //     }else{
+                //         showTip('图片上传失败');
+                //     }
+                // };
+                var postData={
+                    account:this.userName,
+                    pwd:getQueryStringByName('pwd'),
+                    column_id:getQueryStringByName('cid'),
+                    title:this.titl,
+                    imageurl:this.imageurl,
+                    description:this.description,
+                    live_start:timeTranfer($('.startTime').html().replace(/-/g,'/'))/1000,
+                    live_end:timeTranfer($('.endTime').html().replace(/-/g,'/'))/1000,
+                    watchtype:this.watchType,
+                    watchpass:this.watchPass,
+                    product:this.product.substring(0,(this.product.length)-1)
+                };
+                $.ajax({
+                    url:URL+'/webapi/livechannel/generate',
+                    type:'post',
+                    dataType:'json',
+                    data:JSON.stringify(postData),
+                    success:function(data){
+                        console.log(data);
+                        if(data.state.rc==0){
+                            //alert(JSON.stringify(data));
+                            showTip('添加成功');
+                            setTimeout(function(){
+                                window.channelsoft.refreshLiveRoom();
+                            },1000);
+                           
+                        }else{
+                            //alert(JSON.stringify(postData));
+                            showTip('添加失败');
+                        }
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                });
+            },
+            toAddProduct:function(){
+                var recommendData={
+                    title:this.titl,
+                    imageurl:this.imageurl,
+                    description:this.description,
+                    live_start:$('.startTime').html(),
+                    live_end:$('.endTime').html(),
+                    watchtype:this.watchType,
+                    watchpass:this.watchPass
+                }
+                console.log(recommendData);
+                window.location.href="./addRecommend.html?type="+this.source+"&creator="+getQueryStringByName('creator')+"&pwd="+getQueryStringByName('pwd')+"&cid="+getQueryStringByName('cid')+"&recommendData="+JSON.stringify(recommendData);
+            
+            },
+            startTimeBlur:function(){
+                $('.beginTime').css('display','none');
+            },
+            endTimeBlur:function(){
+                var startTime=timeTranfer($('.startTime').html().replace(/-/g,'/'));
+                var now=new Date().getTime();
+                if(startTime<=now){
+                    showTip('请选择正确的开始时间');
+                }
+                $('.lastTime').css('display','none');
+            },
+            back:function(){
+                window.channelsoft.refreshLiveRoom();
+            },
+            addPoster:function(){
+                var that=this;
+                window.channelsoft.addPoster();
+                window.posterImg=function(url,httpUrl){
+                    $('.addPoster img').attr('src',httpUrl);
+                    $('.addPoster img').css({'width':'100%','height':'3rem','margin-bottom':'0.35rem'});
+                    that.imageurl=httpUrl;
+                };  
+                this.imgType=true;
+               
+            },
+            chooseImg:function(){
+                this.addPoster();
+            },
+            deleteImg:function(){
+                $('.addPoster img').attr('src','../img/addImg.png');
+            },
+            addVideo:function(){
+                showTip('功能暂未开放');
+            },
+            havePassword:function(){
+                this.watchType=1;
+            },
+            noPassword:function(){
+                this.watchType=0;
+            },
+            deltea:function(index){
+                var that=this;
+                this.selectedPro.splice(index,1);
+                this.sendProduct.splice(index,1);
+                that.product='';
+                this.sendProduct.forEach(function(item){
+                    
+                  that.product+=item+',';
+                  
+                  });
+                this.productLength=this.sendProduct.length;
+                console.log(this.sendProduct);
+                console.log(this.product);
+              
+            },
+            toggleExtend:function(){
+                this.extend=!this.extend;
+                if(this.extend){
+                    $('.expand').html('&#xe904;')
+                }else{
+                    $('.expand').html('&#xe903;');
+                }
+            }
+        },
+        created:function(){
+            var that=this;
+            if(getQueryStringByName('selectedProduct')){
+                JSON.parse(decodeURI(getQueryStringByName('selectedProduct'))).forEach(function(item){
+                    that.selectedPro.push(item);
+                });
+                console.log(this.selectedPro);
+                this.selectedPro.forEach(function(item){
+                    that.sendProduct.push(item.pid);
+                });
+                
+                this.productLength=that.sendProduct.length;
+                this.sendProduct.forEach(function(item){
+                    console.log(item);
+                    that.product+=item+',';
+                    
+                });
+                console.log(this.product.substring(0,(this.product.length)-1));
+            };
+            if(getQueryStringByName('recommendData')){
+                console.log(JSON.parse(decodeURI(getQueryStringByName("recommendData"))));
+                var recommendData=JSON.parse(decodeURI(getQueryStringByName("recommendData")));
+                this.titl=recommendData.title;
+                this.description=recommendData.description;
+                this.imageurl=recommendData.imageurl;
+                this.watchPass=recommendData.watchpass;
+                this.watchType=recommendData.watchtype;
+                console.log(recommendData.live_start);
+                console.log(recommendData.live_end);
+                $('#startTime').html(recommendData.live_start);
+                $('#endTime').html(recommendData.live_end);
+            }
+            if($('#startTime').html()){
+                $('.beginTime').css('display','none');
+            }
+            if($('#endTime').html()){
+                $('.lastTime').css('display','none');
+            }
+        }
+
+    });
+    
+});

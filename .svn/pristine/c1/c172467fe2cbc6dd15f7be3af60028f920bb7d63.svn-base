@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+    <title>粉丝</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/userAccessDetails.css">
+</head>
+<body>
+    <div id="app">
+            <div class="fansDetailBg">
+                <header>
+                    <span class="back" @click="back">&#xe903;</span>
+                    <span>用户访问详细</span>
+                </header>
+                <div class="headInfo">
+                    <div class="imgBox fl">
+                        <img src="../img/usersID.png" alt="">
+                    </div>
+                    <div class="infoBox fl">
+                        <p style="margin-bottom: 0.2rem;font-size:0.3rem;color:#4c5568;">ID:<span v-html="fansId"></span></p>
+                        <p style="margin-bottom: 0.2rem;font-size:0.24rem;color:#4c5568;"> 观看次数： <span v-html="watch_number"></span></p>
+                        <p style="font-size:0.24rem;color:#4c5568;"> 观看时长 : <i v-html="watch_length"></i></p>
+                    </div>
+                </div>
+            </div>
+                <section>
+                        <div class="detailTit">
+                                访问详细
+                            </div>
+                    <div class="itemContainer">
+                        <div style="min-height: 101%">
+                            <div class="accessItem" v-for="item in visitsdata">
+                                    <p class="watchId">ID:<span v-html="item.fansID"></span><span class="watchTime" v-html="transTime(item.time)"></span></p>
+                                    <p class="watchContent">观看内容：<i v-html="item.name"></i><span></span></p>
+                                    <p class="watchTimea">观看时长：<i v-html="item.length"></i><span></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    </div>
+</body>
+<script src="../js/rem.js"></script>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/iscroll.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/userAccessDetails.js"></script>
+</html>

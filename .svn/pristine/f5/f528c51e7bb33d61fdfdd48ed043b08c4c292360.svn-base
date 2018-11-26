@@ -1,0 +1,127 @@
+header{
+    width: 100%;
+    height: 0.9rem;
+    color: #fff;
+    background: #514cea;
+    text-align: center;
+    line-height: 0.9rem;
+    overflow: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.back{
+    display: inline-block;
+    width: 10%;
+    height: 60%;
+    vertical-align: middle;
+    background: url("../img/fanhui.png") no-repeat center;
+    padding-left: 10px;
+    background-size: contain;
+    margin-top: 3%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.headInfo{
+    width: 100%;
+    height: 2.6rem;
+    background: url("../img/fansBj.png") no-repeat center;
+    padding: 0.5rem 0.25rem 0;
+    margin-top: 0.9rem;
+}
+.imgBox{
+    width: 35%;
+    height: 1.6rem;
+    margin-right: 0.3rem;
+}
+.imgBox img{
+    width: 100%;
+    height: 100%;
+}
+.infoBox{
+    color: #fff;
+    font-size: 0.3rem;
+}
+.imgSize img{
+    width: 0.38rem;
+    height: 0.38rem;
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+.visitDetail{
+    height: calc(100% - 0.9rem);
+}
+.detailTit{
+    width: 96%;
+    height: 1rem;
+    padding-left: 0.25rem;
+    border-bottom: 1px solid #e1e1e1;
+    line-height: 1rem;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.3rem;
+}
+.detailScroll{
+    height: calc(100% - 1rem);
+    overflow-y: scroll;
+}
+.fansDetail{
+    border-bottom:1px solid #e1e1e1;
+    height:2rem;
+    width:95%;
+    margin-left:2.5%;
+    margin-right:2.5%;
+    padding-top:0.35rem;
+    padding-bottom:0.35rem;
+}
+.fansDetail .watchId{
+    margin-bottom:0.35rem;
+    font-size:0.3rem;
+    color:#333;
+}
+.fansDetail .watchId .watchTime{
+    float:right;
+    font-size:0.24rem;
+    color:#999;
+    font-weight:normal;
+}
+.fansDetail .watchContent{
+    font-size:0.3rem;
+    color:#666;
+    margin-bottom:0.35rem;
+}
+.fansDetail .watchTimea{
+    font-size:0.3rem;
+    color:#666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

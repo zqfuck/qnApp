@@ -1,0 +1,71 @@
+header{
+    height:0.98rem;
+    font-size:0.3rem;
+    line-height:0.98rem;
+    width:100%;
+    background-color: #514cea;
+    color:white;
+    text-align: center;
+    position: relative;
+}
+#app{
+    height:calc(100% - 0.98rem);
+}
+.back{
+    width:0.21rem;
+    height:0.38rem;
+    position: absolute;
+    background:url('../img/fanhui.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    top:calc(50% - 0.2rem);
+    left:0.3rem;
+
+}
+.contentList{
+    margin-left:2.5%;
+    margin-right:2.5%;
+    width:95%;
+}
+.contentList .content-item{
+    width:100%;
+    height:1.8rem;
+    border-bottom:1px solid #e1e1e1;
+}
+.contentList .content-item .imgContainer{
+    height:100%;
+    width:35%;
+    margin-right:0.2rem;
+    display:inline-block;
+    float:left;
+    padding-top:0.15rem;
+    padding-bottom:0.15rem;
+}
+.contentList .content-item .imgContainer img{
+    width: 100%;
+    height: 100%;
+}
+.contentList .content-item .contentText{
+    margin-top:0.2rem;
+    width:50%;
+    display:inline-block;
+    float:left;
+}
+.contentText h3{
+    font-size:0.3rem;
+    color:#333;
+    margin-bottom:0.2rem;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+.contentText p{
+    font-size:0.24rem;
+    color:#333;
+    margin-bottom:0.1rem;
+}
+.itemContainer{
+    height:100%;
+    width:100%;
+    
+   
+}

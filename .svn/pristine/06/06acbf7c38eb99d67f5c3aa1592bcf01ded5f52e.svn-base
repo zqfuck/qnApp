@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>修改信息</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Web App">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="../css/common.css">
+        <link rel="stylesheet" href="../css/setting.css">
+        <script src="../js/rem.js"></script>
+    </head>
+<body style="background: #f7f7f7;">
+    <header style="background: #fff;"><p style="border-bottom: 0.5px solid #b7bac4;height:1rem;line-height:1.2rem"><span>修改</span><span class="finish" style="font-size: 0.26rem;">完成</span><i class="back">&#xe906;</i></p><div style="height:0.2rem;background-color:#f7f7f7;"></div></header>
+
+    <div class="changeTou">
+        <img id="picUrl" src="../img/picT.png" alt="">
+    </div>
+    <div class="changeTou" >
+        <input type="text" id="changeNick" value="" placeholder="我的昵称">
+    </div>
+    <div class="changeTou">
+        <input type="text" id="changeIntro" value="" placeholder="我的简介">
+    </div>
+
+
+</body>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/common.js"></script>
+    <script>
+        function getUrlParam(key) {
+            // 获取参数
+            var url = window.location.search;
+            // 正则筛选地址栏
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            // 匹配目标参数
+            var result = url.substr(1).match(reg);
+            //返回参数值
+            return result ? decodeURIComponent(result[2]) : null;
+        }
+        var creator = getUrlParam("creator");
+        var nickName = getUrlParam("nickname");
+        var introduce = getUrlParam("introduce");
+        var headurl = getUrlParam("headpic");
+        var imageurl='';//后台传递头像路径
+        $("#changeNick").val(nickName);
+        if (introduce){
+            $("#changeIntro").val(introduce);
+        };
+        if (headurl){
+            $("#picUrl").prop("src",headurl);
+        };
+        $("#picUrl").click(function () {
+            alert(123)
+            window.channelsoft.changeHead();
+            window.posterImg=function(url,httpUrl){
+                $('#picUrl').attr('src',url);
+                imageurl=httpUrl;
+            };
+        })
+
+        $(".finish").click(function () {
+            var changeNick = $("#changeNick").val();
+            var changeIntro = $("#changeIntro").val();
+            $.ajax({
+                // url:URL+'/app/setting/personage',
+                url:'http://livetapi.v114.com/app/setting/personage',
+                type:"get",
+                dataType:'json',
+                data:{
+                    username:creator,
+                    nickname:changeNick,
+                    summary:changeIntro,
+                    headimg:headurl
+                },
+                success:function(data){
+                    console.log(data)
+                    showTip("修改成功")
+
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            })
+
+        })
+
+    </script>
+</html>

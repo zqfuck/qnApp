@@ -1,0 +1,29 @@
+
+body{background: #eff3f7;}
+header{height: 1rem;background: #514cea;font-size: 0.35rem;font-weight: normal;
+    color: #fff;text-align: center;line-height: 1rem;margin-bottom: 0.24rem;}
+section .loginp{width: 100%;height: 1.2rem;background: #fff;line-height: 1.2rem;padding-left: 0.3rem;}
+section .loginp .inpBj{display: inline-block;width: 0.44rem;height: 0.44rem;vertical-align: middle;}
+section .loginp  input{width: 80%;height: 90%;margin-top: 1%;font-size: 0.3rem;;
+    border: none;outline: none;line-height: 90%;padding-left: 0.3rem;}
+section .loginp  input::-webkit-input-placeholder{
+    color: #B6B5B5;margin-top: 1%;
+}
+.forget{color: #514cea;font-size: 0.24rem;text-align: right;margin-top: 0.22rem;margin-right: 0.24rem;}
+#loginBtn{
+    
+        width:80%;
+        height:1.12rem;
+        display:inline-block;
+        margin-top:20%;
+        margin-left:10%;
+        margin-right:10%;
+        background:url('../img/loginButton.png') no-repeat center center;
+        background-size:100% 100%;
+        color:white;
+        line-height:1.12rem;
+        text-align: center;
+        border-radius: 0.8rem;
+    
+}
+

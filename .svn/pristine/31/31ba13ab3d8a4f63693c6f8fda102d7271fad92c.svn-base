@@ -1,0 +1,241 @@
+body{
+    background-color: #eff3f7;
+    /* overflow:hidden; */
+}
+header{
+    height:0.98rem;
+    font-size:0.3rem;
+    line-height:0.98rem;
+    width:100%;
+    margin-bottom:0.24rem;
+    background-color: #514cea;
+    color:white;
+    text-align: center;
+    position: relative;
+}
+.host,.changePassword,.liveSetting,.about{
+    height:1.2rem;
+    width:100%;
+    background-color: #fff;
+    border-bottom:1px solid #eee;
+}
+.host .icon-host{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/users.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.host,.changePassword,.liveSetting,.about{
+    position: relative;
+}
+.host,.changePassword,.liveSetting,.about span{
+    display:inline-block;
+}
+.host .host-name{
+    float:right;
+    margin-right:0.6rem;
+    position: relative;
+    top:0.43rem;
+}
+.changePassword .icon-chpd{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/changePd.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.liveSetting .icon-setting{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/setting.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.about .icon-about{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/about.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.cancellation{
+    width:80%;
+    height:0.8rem;
+    display:inline-block;
+    margin-top:20%;
+    margin-left:10%;
+    margin-right:10%;
+    background:url('../img/loginButton.png') no-repeat center center;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    border-radius: 0.8rem;
+}
+.point{
+    position:absolute;
+    width:0.22rem;
+    height:0.44rem;
+    background: url('../img/point.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    top:calc(50% - 0.22rem);
+    right:0.3rem;
+}
+.userName,.oldPassword,.newPassword,.confrimPassword{
+    height:1.2rem;
+    width:100%;
+    background-color: #fff;
+    margin-bottom:1px;
+}
+input{
+    outline: none;
+    border:none;
+    font-size:0.3rem;
+    color:#b6b5b5
+}
+.userName .icon-user{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/users.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.oldPassword .icon-oldPd{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/pass.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.newPassword .icon-newPd{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/pass.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.confrimPassword .icon-cmPd{
+    display:inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    background:url('../img/pass.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    margin-left:0.3rem;
+    margin-top:0.36rem;
+    margin-right:0.35rem;
+}
+.confirmChange{
+    width:80%;
+    height:0.8rem;
+    display:inline-block;
+    margin-top:20%;
+    margin-left:10%;
+    margin-right:10%;
+    background:url('../img/loginButton.png') no-repeat center center;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    border-radius: 0.8rem;
+}
+.settingClarity{
+    display:flex;
+    justify-content: space-around;
+    margin-top:0.62rem;
+}
+.settingClarity span{
+    width:1.8rem;
+    height:0.7rem;
+    font-size:0.3rem;
+    color:#bbbbbf;
+    border:1px solid #bbbbbf;
+    line-height:0.7rem;
+    text-align: center;
+    border-radius: 0.1rem;
+}
+.settingClarity span.active{
+    color:#514cea;
+    border-color:#514cea;
+}
+.saveChange{
+    width:80%;
+    height:0.8rem;
+    display:inline-block;
+    margin-top:20%;
+    margin-left:10%;
+    margin-right:10%;
+    background:url('../img/loginButton.png') no-repeat center center;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    border-radius: 0.8rem;
+}
+.logo{
+    margin-top:0.85rem;
+    width:100%;
+}
+.logo img{
+    width:1.58rem;
+    height:1.4rem;
+    display:block;
+    margin:0 auto;
+    margin-bottom:0.25rem;
+}
+.logo span{
+    display:block;
+    text-align: center;
+    font-size:0.24rem;
+    color:#666;
+}
+.aboutContent{
+    margin-top:0.5rem;
+    padding:0.25rem;
+    width:100%;
+    line-height:0.5rem;
+    text-indent:0.4rem;
+    font-size:0.3rem;
+    color:#333;
+}
+.footer{
+    position:absolute;
+    bottom:0.5rem;
+    left:0;
+    width:100%;
+}
+.footer p{
+    font-size:0.24rem;
+    color:#666;
+    width:100%;
+    text-align: center;
+    margin-top:0.1rem;
+}
+.back{
+    width:0.21rem;
+    height:0.38rem;
+    position: absolute;
+    background:url('../img/fanhui.png') no-repeat 100% 100%;
+    background-size:100% 100%;
+    top:calc(50% - 0.2rem);
+    left:0.3rem;
+
+}

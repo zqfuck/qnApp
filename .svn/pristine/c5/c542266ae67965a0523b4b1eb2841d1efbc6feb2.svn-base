@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/addtrailer.css">
+    <title>编辑预告</title>
+</head>
+<style>
+    .back{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+<body style="overflow-scrolling: touch;">
+<div id="app">
+    <header><span class="back" @click="back"><i></i>取消</span>编辑预告</header>
+    <input type="text" class="title"  v-model="titl">
+    <input type="text" class="describe"  v-model="description">
+    <p   class="startTime" v-html="starttime"></p>
+    <p   class="endTime"  v-html="endtime"></p>
+    <div class="settingPassword">
+        观看密码：<span  id="havePassword" @click="havePassword" :class="{have:watchType}"><i></i>有<input v-if="watchType" type="password" id="password" placeholder="设置观看密码" v-model="watchPass" ></span>
+        <span :class="{nothing:true,have:!watchType}" id="nopassword" @click="noPassword"><i></i>无</span>
+    </div>
+    <div class="addPoster" @click="addPoster">
+        添加剧照：
+        <img :src="imageurl?imageurl:'../img/addImg.png'" alt="" style="width:100%;height:3rem;margin-bottom:0.35rem" >
+        <span class="changeImg" ><i class="chooseImg" @click.stop.prevent="chooseImg"></i><i class="deleteImg" @click.stop.prevent="deleteImg"></i></span>
+    </div>
+    <div class="addVideo" @click="addVideo">
+        添加视频：
+        <img src="../img/addVideo.png" alt="" crossorigin="anonymous" >
+    </div>
+    <div class="addPromoteProduct">
+        <a href="javascript:void(0)" @click="toAddProduct">+ 添加推荐产品</a>
+        <p>已添加推荐产品：<span v-html="productLength"></span><i v-show="productLength!=0" class="expand" @click="toggleExtend"></i></p>
+    </div>
+    <div class="haveAdded"  v-if="extend">
+        <ul class="list">
+            <li class="list-item" v-for="(item,index) in selectedPro" >
+                <div class="imgBox fl">
+                    <img :src="item.img?item.img:item.imgUrl" alt="">
+                </div>
+                <div class="detail fl">
+                    <p class="nameHeight">产品名称: <span v-html="item.title"></span></p>
+                    <p>产品代码: <span v-html="item.recommendCode"></span></p>
+                    <span class="normal" @click="deltea(index)"></span>
+                </div>
+                <div class="chunk"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="saveChange" @click="add">
+        保存
+    </div>
+</div>
+</body>
+<script src="../js/rem.js"></script>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/md5.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/laydate/laydate.js"></script>
+<script src="../js/editTrailer.js"></script>
+</html>

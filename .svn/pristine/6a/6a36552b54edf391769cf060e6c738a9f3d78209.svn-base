@@ -1,0 +1,90 @@
+body{
+    background-color: #eef2f6;
+}
+header{width:100%;height:4.27rem;background: url("../img/BG.png") no-repeat center;
+color: #fff;overflow-y: auto;font-size:0.3rem}
+.title{font-size: 0.3rem;text-align: center;margin: 0.36rem 0 0.3rem 0;}
+.createTitle{margin-left: 0.5rem;font-size: 0.3rem;font-weight: bold;}
+.createTime{margin-left: 0.5rem;font-size: 0.24rem;margin-top: 0.2rem;}
+#enterLive{width: 65%;height: 0.9rem;margin-left: 17.5%;font-size: 0.3rem;border: none;outline: none;
+    color: #514cea;position: relative;
+    background: url("../img/liveBtn.png") no-repeat center;background-size: cover;margin-top: 0.3rem;font-weight: bold;}
+.enterMark{display: inline-block;width: 15%;height: 88%;background: url("../img/mark.png") no-repeat center;
+    position: absolute;top: 5%;right: 14%;}
+section{width: 100%;padding: 0 0.25rem;height: calc(100% - 3.7rem); }
+.section-list{
+    width:100%;
+    height:100%;
+    background: url("../img/liebiao-BG.png") no-repeat center;
+    margin-top:-0.75rem;
+}
+.createBox{width: 100%;padding: 0 0.25rem}
+.titleChange{width: 100%;height: 0.77rem;border-bottom: 1px solid #e1e1e1;}
+.newBook{color: #514cea;line-height: 0.77rem;}
+.change{border: none;outline: none;font-size: 0.3rem;height: 100%;}
+.alignRight{text-align: right;}
+.list{width: 100%;
+   /* background: url("../img/liebiao-BG.png") no-repeat center;*/padding: 0 0.15rem;}
+.controlBox{
+    overflow:hidden;
+    position: relative;
+    width: 100%; height:calc(100% - 0.8rem);
+    background: url("../img/liebiao-BG.png") no-repeat center;padding: 0 0.1rem;
+}   
+.list li{width: 100%;height: 1.8rem;padding: 0.15rem 0rem;border-bottom: 1px solid #e1e1e1;}
+.imgBox{width: 35%;height: 98%;margin-right: 5%;}
+.imgBox img{width: 100%;height: 100%;}
+.name{font-size: 0.3rem;color: #333;margin-bottom: 0.2rem;overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;}
+.marginR{margin-right: 0.1rem;}
+.timeColor,.operateColor{font-size: 0.24rem;color: #999;}
+.timeColor{margin-bottom: 0.15rem;width:100%}
+.operateColor{height: 0.3rem;height: 0.5rem;line-height: 0.5rem;position: relative;}
+.operateColor .kindStyle{display: inline-block;width: 31%;}
+.operateColor i{display: inline-block;width: 20px;height: 20px;background-size: contain;vertical-align: middle;}
+.liveBj{background: url("../img/liveBj.png") no-repeat center;}
+.editBj{background: url("../img/editBj.png") no-repeat center;}
+.shareBj{background: url("../img/shareBj.png") no-repeat center;}
+.share{
+    text-align:right;
+    position:absolute;
+    right:0;
+}
+.edit{
+    text-align: center;
+}
+.detail{
+    width:60%;
+}
+.changeManage{float: right;display: inline-block;
+    position: relative;padding-right: 0.3rem;padding-top: 0.16rem;}
+.changeManage i{
+    float: right;
+    position: absolute;
+    right: -1px;
+    top: 17px;
+    width: 0;
+    height: 0;
+    border: 5px solid #000;
+    border-color: #000 transparent transparent transparent;
+}
+.manageList{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: -1.1rem;
+    height: 1rem;
+    background: #fff;
+    border: 1px solid #514cea;
+    z-index: 1;
+}
+.manageList span{
+    display: inline-block;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding:0;
+    padding-left: 0.05rem;
+}
+.blueOn{background: #514cea;color: #fff;}

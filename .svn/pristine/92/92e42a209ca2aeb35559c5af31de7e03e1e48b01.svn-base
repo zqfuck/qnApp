@@ -1,0 +1,128 @@
+.fans{
+    width:100%;
+    height:100%;
+}
+header{
+    height:1rem;
+    line-height:1rem;
+    text-align: center;
+    background-color: #eff3f7;
+}
+#app{
+    width:100%;
+    height:100%;
+}
+.liveDetail{
+    background:url('../img/fansBg.png') no-repeat ;
+    background-size:100% 85%;
+    width:100%;
+    height:4.15rem;
+    padding-bottom:0.54rem;
+    background-color:#eff3f7;
+    position: relative;
+}
+.liveDetail-title{
+    position:absolute;
+    left:25%;
+    top:35%;
+    width:50%;
+}
+.liveDetail-title .name{
+    text-align: center;
+    font-size:0.3rem;
+    color:#fff;
+}
+.liveDetail-title .certification{
+    font-size:0.26rem;
+    color:#fff;
+    margin-bottom:0.1rem;
+}
+.liveDetail-title .certification span{
+    font-size:0.48rem;
+    color:#fff;
+    font-weight:bold;
+    margin-left:0.2rem;
+}
+.liveDetail-title .accessTimes{
+    font-size:0.26rem;
+    color:#fff;
+}
+.liveDetail-title .accessTimes span{
+    color:#dcdbff;
+    margin-left:0.2rem;
+}
+.liveDetail .divingFans{
+    position:absolute;
+    bottom:0.2rem;
+    left:0.3rem;
+    color:#666;
+    font-size:0.26rem;
+}
+.accessDetail{
+    border-bottom:1px solid #e1e1e1;
+    height:1rem;
+    width:95%;
+    line-height:1rem;
+    margin-left:2.5%;
+    margin-right:2.5%;
+}
+.accessDetail .fansDetail{
+    font-size:0.3rem;
+    font-weight:bold;
+    color:#333;
+}
+.accessDetail .statistical{
+    float:right;
+    font-size:0.3rem;
+    color:#514cea;
+}
+.accessDetail .statistical i{
+    width:0.12rem;
+    height:0.21rem;
+    display:inline-block;
+    margin-left:0.1rem;
+    background:url('../img/fansBtn.png') no-repeat;
+    background-size:100% 100%;
+}
+.accessItem{
+    border-bottom:1px solid #e1e1e1;
+    height:2.6rem;
+    width:95%;
+    margin-left:2.5%;
+    margin-right:2.5%;
+    padding-top:0.35rem;
+    padding-bottom:0.35rem;
+}
+.accessItem .watchId{
+    margin-bottom:0.35rem;
+    font-size:0.3rem;
+    color:#333;
+}
+.accessItem .watchId .watchTime{
+    float:right;
+    font-size:0.24rem;
+    color:#999;
+    font-weight:normal;
+}
+.accessItem .watchContent{
+    font-size:0.3rem;
+    color:#666;
+    margin-bottom:0.35rem;
+}
+.accessItem .watchTimea{
+    font-size:0.3rem;
+    color:#666;
+}
+.fanBgTwo{
+    position:absolute;
+    width:1.7rem;
+    height:1.7rem;
+    top:0;
+    left:50%;
+    margin-left:-0.85rem;
+    margin-top:-0.3rem;
+}
+.itemContainer{
+    height:calc(100% - 6.15rem);
+    width:100%;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>修改密码</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Web App">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="../css/common.css">
+        <link rel="stylesheet" href="../css/setting.css">
+        <script src="../js/rem.js"></script>
+    </head>
+<body>
+    <header>直播设置<span class="back"></span></header>
+    <!-- <div class="userName">
+        <i class="icon-user" ></i>
+        <input type="text" placeholder="请输入用户名">
+    </div> -->
+   <div class="settingClarity">
+        <span class="active" id="Standard">标清</span>
+        <span id="hd">高清</span>
+        <span id="superClear">超清</span>
+   </div>
+    <div class="saveChange" id="saveChange">
+        保存
+    </div>
+</body>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/setting.js"></script>
+</html>

@@ -1,0 +1,185 @@
+header{
+    height:0.98rem;
+    font-size:0.3rem;
+    line-height:0.98rem;
+    width:100%;
+    margin-bottom:0.24rem;
+    background-color: #514cea;
+    color:white;
+    text-align: center;
+    position: relative;
+}
+header .back{
+    font-size:0.3rem;
+    float:left;
+    display:inline-block;
+}
+header .back i{
+    background:url('../img/fanhui.png') no-repeat;
+    background-size:100% 100%;
+    width:0.21rem;
+    height:0.38rem;
+    display:inline-block;
+    vertical-align: -4px;
+    margin-right:0.2rem;
+    margin-left:0.2rem;
+}
+header .add{
+    float:right;
+    margin-right:0.2rem;
+    font-size:0.3rem;
+}
+.title,.describe,.startTime,.endTime{
+    outline: none;
+    border:none;
+    display:block;
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    border-bottom:1px solid #d8d8d8;
+    height:1rem;
+    font-size:0.3rem;
+    color:#666;
+}
+.startTime,.endTime{
+    background:url('../img/date.png') no-repeat;
+    background-position:100% 50%;
+    line-height:1rem;
+}
+.settingPassword{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    border-bottom:1px solid #d8d8d8;
+    height:2rem;
+    padding-top:0.45rem;
+}
+.settingPassword .nothing{
+    display:block;
+    margin-left:26%;
+    margin-top:0.2rem;
+}
+.settingPassword .have i{
+    background: url('../img/xuanzhong.png') no-repeat;
+    width:0.3rem;
+    height:0.3rem;
+    display: inline-block;
+    background-size:100% 100%;
+    vertical-align: -4px;
+    margin-right:0.2rem;
+}
+.settingPassword  i{
+    width:0.3rem;
+    height:0.3rem;
+    display: inline-block;
+    background: url('../img/weixuanzhong-.png') no-repeat;
+    background-size:100% 100%;
+    vertical-align: -4px;
+    margin-right:0.2rem;
+}
+.addPoster,.addVideo{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    border-bottom:1px solid #d8d8d8;
+    padding-top:0.3rem;
+    position: relative;
+}
+.addPoster img{
+    display:block;
+    margin:0 auto;
+    width:2.6rem;
+    height:1.6rem;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+}
+.addPoster .changeImg{
+    width:1.5rem;
+    height:0.62rem;
+    position:absolute;
+    right:0;
+    bottom:0.4rem;
+}
+.addPoster .changeImg .chooseImg{
+    width:0.62rem;
+    height:0.62rem;
+    display:inline-block;
+    background:url('../img/chooseImg.png') no-repeat;
+    background-size:100% 100%;
+}
+.addPoster .changeImg .deleteImg{
+    width:0.62rem;
+    height:0.62rem;
+    display:inline-block;
+    margin-left:0.22rem;
+    background:url('../img/deleteImg.png') no-repeat;
+    background-size:100% 100%;
+}
+.addVideo img{
+    display:block;
+    margin:0 auto;
+    width:2.6rem;
+    height:1.6rem;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+}
+.addPromoteProduct{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    padding-top:0.3rem;
+}
+.addPromoteProduct a{
+    font-size:0.3rem;
+    color:#514cea;
+}
+.addPromoteProduct p{
+    margin-top:0.2rem;
+    margin-bottom:0.3rem;
+}
+.addPromoteProduct i{
+    display: inline-block;
+    width:0.34rem;
+    height:0.18rem;
+    float:right;
+    background:url('../img/xiala.png') no-repeat;
+    background-size:100% 100%;
+}
+.saveChange{
+    width:80%;
+    height:0.8rem;
+    display:inline-block;
+    margin-top:10%;
+    margin-bottom:10%;
+    margin-left:10%;
+    margin-right:10%;
+    background:url('../img/loginButton.png') no-repeat center center;
+    color:white;
+    line-height:0.8rem;
+    text-align: center;
+    border-radius: 0.8rem;
+}
+#password{
+    display:inline-block;
+    margin:0;
+    padding:0;
+    width:35%;
+    height:0.5rem;
+    margin-left:0.2rem;
+    outline: none;
+    border:none;
+    border-bottom:1px solid #d8d8d8;
+    font-size:0.3rem;
+    color:#666;
+}
+.list{width: 100%;padding-left:0.2rem;padding-right:0.2rem}
+.list-item{width: 100%;height: 1.4rem;padding-left: 5px;
+    border-bottom: 1px solid #e1e1e1;margin-bottom: 10px;}
+.imgBox{width: 30%;height: 85%;}
+.imgBox img{width: 100%;height: 100%;}
+.detail{margin-left: 10px;width: 65%;height: 85%;position: relative;}
+.detail .nameHeight{height: 65%;}
+.normal{position: absolute;display: inline-block;width: 0.37rem;height: 0.36rem;right: -2%;top: 38%;
+    background: url("../img/delete.png") no-repeat center;
+background-size: cover;}
+.check{background: url("../img/delete.png") no-repeat center;background-size: cover;}

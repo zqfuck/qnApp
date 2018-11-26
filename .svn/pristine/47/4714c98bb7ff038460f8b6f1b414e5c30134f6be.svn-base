@@ -1,0 +1,152 @@
+
+header{width:100%;height:3.85rem;background: url("../img/BG.png") no-repeat center;
+color: #fff;overflow-y: auto;font-size:0.3rem;background-size:100% 100%;background-position:0 0}
+.title{font-size: 0.3rem;text-align: center;margin: 0.36rem 0 0.35rem 0;}
+.createTitle{margin-left: 0.25rem;font-size: 0.28rem;}
+.createTime{margin-left: 0.25rem;font-size: 0.24rem;margin-top: 0.35rem;}
+#enterLive{width: 3rem;height: 1rem;margin-left: calc(50% - 1.5rem);font-size: 0.3rem;border: none;outline: none;
+    color: #da3748;position: relative;
+    background: url("../img/liveBtn.png") no-repeat center;background-size: 100% 100%;background-position:0 0;margin-top: 0.4rem;line-height:0.5rem}
+.enterMark{display: inline-block;width: 15%;height: 88%;background: url("../img/mark.png") no-repeat center;
+    position: absolute;top: 5%;right: 14%;}
+section{width: 100%;padding: 0 0.25rem;height: calc(100% - 4.25rem); }
+.section-list{
+    width:100%;
+    height:100%;
+}
+.createBox{width: 100%;}
+.titleChange{width: 100%;height: 0.9rem;border-bottom: 1px solid #d0d3db;line-height:0.9rem}
+.newBook{color: #da3748;line-height: 0.77rem;font-size:0.28rem}
+.change{border: none;outline: none;font-size: 0.3rem;height: 100%;}
+.alignRight{text-align: right;}
+.list{width: 100%;
+   /* background: url("../img/liebiao-BG.png") no-repeat center;padding: 0 0.15rem;} */}
+.controlBox{
+    overflow:hidden;
+    position: relative;
+    width: 100%; height:calc(100% - 0.8rem);
+    background: url("../img/liebiao-BG.png") no-repeat center;
+}   
+.list li{width: 100%;height: 2rem;padding: 0.25rem 0rem;border-bottom: 1px solid #d0d3db;}
+.imgBox{width: 1.6rem;height:1.09rem;margin-top:0.18rem;position: relative;}
+.imgBox img{width: 100%;height: 100%;}
+.name{font-size: 0.28rem;color: #4c5568;margin-bottom: 0.2rem;overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;}
+.marginR{margin-right: 0.1rem;}
+.timeColor,.operateColor{font-size: 0.24rem;color: #a3acbe;}
+.operateColor{font-size:0.22rem;color:#4c5568;}
+.timeColor{margin-bottom: 0.1rem;width:100%}
+.operateColor{height: 0.3rem;height: 0.5rem;line-height: 0.6rem;position: relative;}
+/* .operateColor .kindStyle{display: inline-block;width: 31%;} */
+.operateColor i{
+    display:inline-block;
+    position:absolute;
+    font-family: iconfonttwo;
+    font-size:0.35rem;
+    color:#4c5568;
+}
+.text-hh{
+    margin-left:0.43rem;
+}
+
+/* .liveBj{background: url("../img/liveBj.png") no-repeat center;}
+.editBj{background: url("../img/editBj.png") no-repeat center;}
+.shareBj{background: url("../img/shareBj.png") no-repeat center;} */
+/* .share{
+    text-align:right;
+    position:absolute;
+    right:0;
+} */
+.edit{
+    text-align: center;
+}
+.detail{
+    width:60%;
+}
+.changeManage{float: right;display: inline-block;
+    font-size:0.24rem;color:#4c5568;
+    position: relative;}
+.changeManage i{
+    font-family: iconfont;
+    margin-left:0.1rem;
+    font-size:0.2rem;
+}
+.manageList{
+    line-height:0.4rem;
+    font-size:0.24rem;
+    display: inline-block;
+    position: absolute;
+    right: -5px;
+    left:-4px;
+    bottom: -0.6rem;
+    height: 0.8rem;
+    background: #fff;
+    border: 1px solid #da3748;
+    z-index: 1;
+}
+.manageList span{
+    display: inline-block;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding:0;
+    padding-left: 0.05rem;
+}
+.blueOn{background: #da3748;color: #fff;}
+.zeroChunk{
+    background-color: #f7f7f7;
+    height:calc(100% - 0.8rem);
+}
+@font-face {font-family: 'iconfonttwo';
+    src: url('fonttwo/icomoon.eot');
+    src: url('fonttwo/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonttwo/icomoon.woff') format('woff'),
+    url('fonttwo/icomoon.ttf') format('truetype'),
+    url('fonttwo/icomoon.svg#iconfont') format('svg');
+}
+.iconfonttwo{
+    font-family:"iconfonttwo" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {font-family: 'iconfontthree';
+    src: url('fontthree/icomoon.eot');
+    src: url('fontthree/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fontthree/icomoon.woff') format('woff'),
+    url('fontthree/icomoon.ttf') format('truetype'),
+    url('fontthree/icomoon.svg#iconfont') format('svg');
+}
+.iconfonttwo{
+    font-family:"iconfontthree" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.backSee{
+    margin-right:0.3rem;
+    position: relative;
+}
+.backSee i{
+    font-family: iconfontthree;
+    left:-0.45rem;
+}
+.imgBox i{
+    font-family: iconfontthree;
+    position:absolute;
+    font-size:0.35rem;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.imgBox video{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+

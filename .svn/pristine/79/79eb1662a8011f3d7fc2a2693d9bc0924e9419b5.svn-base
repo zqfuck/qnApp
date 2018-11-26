@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>直播</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/rem.js"></script>
+</head>
+<body  >
+    <div id="app" style="height:100%">
+        <div style="height:100%">
+            <header>
+                <p class="title">直播间</p>
+                <p class="createTitle" v-text="liveName"></p>
+                <p class="createTime">创建于<span v-text="liveCreate"></span></p>
+                <button id="enterLive" @click="enterlive">进入直播间 </button>
+            </header>
+            <div style="height:0.2rem;background-color:#f7f7f7"></div>
+            <section>
+                <div class="section-list">
+                <div class="createBox">
+                    <p class="titleChange">
+                        <span class="newBook" v-if="manageName=='预告管理'" @click="addLive">+新建预告</span>
+                        <span class="changeManage" @click="changeMange"><span v-text="manageName"></span> 
+                            <span class="manageList" v-if="changeTrue">
+                                <span :class="{blueOn:(manageName=='预告管理')}" @click="advanceManage">预告管理</span>
+                                <span :class="{blueOn:(manageName=='回看管理')}" @click="backManage">回看管理</span>
+                             </span>
+                        </span>
+
+                    </p>
+                </div>
+                <div class="controlBox">
+                    <ul class="list" style="min-height: 101%;">
+                        <li v-for="item in listMessage">
+                            
+                            <div class="detail fl">
+                                <p class="name" v-html="item.name"></p>
+                                <p class="timeColor"><span v-html="timeChangeDay(item.live_start)"></span> - <span v-html="timeChangeDay(item.live_end)"></span></p>
+                                <p :class="{operateColor:true,alignRight:(type==1?false:true)}" >
+                                    <span class="live kindStyle" v-if="type==1" style="margin-right:0.38rem">
+                                        <span style="width: 100%;" >
+                                            <span v-show="(!item.count_num && (item.type==1||item.type==2))" @click="startPushLive(item)"><i class="liveBj"></i>直播</span>
+                                        </span>
+                                        <span class="timeFont" v-show="item.count_num<=86400000 && !item.count_num==0" v-html="leftTimea(item.count_num)"></span>
+                                        <span v-show="item.count_num>86400000">多于一天</span>
+                                    </span>
+                                    <span class="edit kindStyle" style="margin-right:0.38rem"  v-if="type==1"  @click="goedit(item)"><i class="editBj"></i>编辑</span>
+                                    <span class="share kindStyle" @click="listShare(item)"><i class="shareBj" ></i>分享</span>
+                                </p>
+                            </div>
+                            <div class="imgBox fr">
+                                <img :src="item.attinfo.smallcoverurl" alt="">
+                            </div>
+                        </li>
+                        <!--<li>
+                            <div class="imgBox fl">
+                                <img src="./img/15.jpg" alt="">
+                            </div>
+                            <div class="detail fl">
+                                <p class="name">对话特朗布</p>
+                                <p class="timeColor"><span class="marginR">01/20</span> <span>18:00-20:00</span></p>
+                                <p class="operateColor">
+                                    <span class="live"><i class="liveBj"></i>直播</span>
+                                    <span class="edit"><i class="editBj"></i>编辑</span>
+                                    <span class="share"><i class="shareBj"></i>分享</span>
+                                </p>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+</html>

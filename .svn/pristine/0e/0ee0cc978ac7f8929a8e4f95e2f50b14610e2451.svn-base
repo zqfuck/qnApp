@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+    <title>粉丝</title>
+    <link rel="stylesheet" href="css/mescroll.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/fans.css">
+    
+</head>
+<body>
+    <div id="app">
+        <header>粉丝</header>
+        <div class="liveDetail">
+            <img src="./img/fansBgTwo.png" alt="" class="fanBgTwo">
+            <div class="liveDetail-title">
+                <p class="name"><span v-html="username"></span>的直播间</p>
+                <p class="certification">认证粉丝<span v-html="fansnumber"></span></p>
+                <p class="accessTimes">到访次数<span v-html="isfansvisits"></span></p>
+            </div>
+        </div>
+        <div class="divingFans">潜水粉丝到访次数：<span v-html="notfansvisits"></span></div>
+        <div class="accessDetail">
+            <span class="fansDetail">认证粉丝访问详细</span>
+            <span class="statistical" @click="toContentAccess">内容访问统计<i></i></span>
+        </div>
+        <div class="itemContainer mescroll" id="mescroll">
+            <div style="min-height: 101%">
+                <div class="accessItem" v-for="item in visitData">
+                    <p class="watchId">ID：<span @click="toUersAccess(item)" v-html="item.fansID">}</span><span class="watchTime" v-html="transTime(item.time)"></span></p>
+                    <p class="watchContent">观看内容：<span @click="toContentDetails(item)" v-html="item.name"></span></p>
+                    <p class="watchTimea">观看时长：<span v-html="item.length"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/rem.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/mescroll.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/fans.js"></script>
+</html>

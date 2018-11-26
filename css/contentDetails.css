@@ -1,0 +1,123 @@
+header{
+    width: 100%;
+    height: 0.9rem;
+    color: #4c5568;
+    font-size:0.3rem;
+    text-align: center;
+    line-height: 1.1rem;
+    overflow: auto;
+    position: relative;
+}
+.back{
+    position: absolute;
+    /* top: calc(50% - 0.2rem); */
+    left: 0.25rem;
+    font-family: iconfont;
+    font-size:0.4rem;
+    color:#4c5568;
+}
+section{
+    padding:0 0.25rem;
+}
+.headInfo{
+    width: 100%;
+    height: 2.2rem;
+    padding: 0.5rem 0.25rem 0;
+}
+.imgBox{
+    width: 1.82rem;
+    height: 1.26rem;
+    border:2px solid #7181a3;
+    margin-right: 0.6rem;
+}
+.imgBox img{
+    width: 100%;
+    height: 100%;
+}
+.infoBox{
+    color: #fff;
+    font-size: 0.3rem;
+    margin-top:-0.1rem;
+}
+.imgSize img{
+    width: 0.38rem;
+    height: 0.38rem;
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+.visitDetail{
+    height: calc(100% - 0.9rem);
+}
+.detailTit{
+    width: 100%;
+    height: 1rem;
+    border-bottom:1px solid #d0d3db ;
+    line-height: 1rem;
+    color: #4c5568;
+    font-size: 0.28rem;
+}
+.detailScroll{
+    height: calc(100% - 1rem);
+    overflow-y: scroll;
+}
+.fansDetail{
+    border-bottom:1px solid #d0d3db ;
+    width:100%;
+    padding-top:0.35rem;
+    padding-bottom:0.35rem;
+}
+.fansDetail .watchId{
+    margin-bottom:0.35rem;
+    font-size:0.28rem;
+    color:#d13243;
+}
+.fansDetail .watchId .watchTime{
+    float:right;
+    font-size:0.22rem;
+    color:#a3acbe;
+    font-weight:normal;
+}
+.fansDetail .watchContent{
+    font-size:0.3rem;
+    color:#666;
+    margin-bottom:0.35rem;
+}
+.fansDetail .watchTimea{
+    font-size:0.22rem;
+    color:#a3acbe;
+}
+.fansDetailBg{
+    background: url('../img/fansDetailsBg.png') no-repeat center center;
+    background-size: 100% 100%;
+    background-position: 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

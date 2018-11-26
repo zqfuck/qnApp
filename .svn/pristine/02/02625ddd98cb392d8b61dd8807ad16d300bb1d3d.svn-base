@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
+    <title>内容访问详细</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/contentDetails.css">
+    <script src="../js/rem.js"></script>
+</head>
+<body>
+    <div id="app" style="width: 100%;height: 100%;">
+        <header>
+            <span class="back" @click="back"></span>
+            <span>内容访问详细</span>
+        </header>
+
+        <div class="headInfo">
+            <div class="imgBox fl">
+                <img :src="imgUrl?imgUrl:'../img/1517824638.jpg'" alt="">
+            </div>
+            <div class="infoBox fl">
+                <p style="margin-bottom: 0.2rem;" v-html="name"></p>
+                <p style="margin-bottom: 0.1rem;"><span class="imgSize"><img src="../img/renzheng.png" alt=""></span>认证粉丝PV : <i v-html="isfansvisits"></i></p>
+                <p><span class="imgSize"><img src="../img/qianshui.png" alt=""></span>潜水粉丝PV : <span v-html="notfansvisits"></span></p>
+            </div>
+        </div>
+        <div class="visitDetail">
+            <div class="detailTit">
+                认证粉丝访问详细
+            </div>
+            <div class="detailScroll">
+                <div style="min-height: 101%">
+                    <div class="fansDetail" v-for="item in visitData">
+                        <p class="watchId">ID<span v-html="item.fansID"></span><span class="watchTime" v-html="transTime(item.time)"></span></p>
+                        <p class="watchTimea">观看时长：<span v-html="item.length"></span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/iscroll.js"></script>
+<script src="../js/contentDetails.js"></script>
+</html>
